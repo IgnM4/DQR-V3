@@ -3,43 +3,48 @@ package com.mycompany.drivequestrentals;
 import javafx.application.Application;
 import java.util.Scanner;
 
+/**
+ * Punto de entrada de la aplicación. Aquí se inicializan los servicios
+ * principales a través de {@link ServiceManager} y se delega la ejecución
+ * en modo gráfico o consola.
+ */
+
 import com.mycompany.drivequestrentals.consola.ConsolaControlador;
+import com.mycompany.drivequestrentals.ServiceManager;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("===========================================");
-        System.out.println("🚗 DriveQuestrentals - Sistema de Arriendos");
-        System.out.println("===========================================");
-        System.out.println("Seleccione el modo de ejecución:");
-        System.out.println("1. Modo Gráfico (JavaFX)");
-        System.out.println("2. Modo Consola");
-        System.out.print("Opción: ");
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("===========================================");
+            System.out.println("🚗 DriveQuestrentals - Sistema de Arriendos");
+            System.out.println("===========================================");
+            System.out.println("Seleccione el modo de ejecución:");
+            System.out.println("1. Modo Gráfico (JavaFX)");
+            System.out.println("2. Modo Consola");
+            System.out.print("Opción: ");
 
-        String opcion = scanner.nextLine();
+            String opcion = scanner.nextLine();
 
-        switch (opcion) {
-            case "1":
-                System.out.println("🔵 Iniciando aplicación en modo gráfico...");
-                Application.launch(App.class, args);
-                break;
-            case "2":
-                System.out.println("🟢 Iniciando aplicación en modo consola...");
-                iniciarModoConsola();
-                break;
-            default:
-                System.out.println("❌ Opción no válida. Cerrando aplicación.");
+            switch (opcion) {
+                case "1":
+                    System.out.println("🔵 Iniciando aplicación en modo gráfico...");
+                    Application.launch(App.class, args);
+                    break;
+                case "2":
+                    System.out.println("🟢 Iniciando aplicación en modo consola...");
+                    iniciarModoConsola(scanner);
+                    break;
+                default:
+                    System.out.println("❌ Opción no válida. Cerrando aplicación.");
+            }
         }
-
-        scanner.close();
     }
 
     /**
      * Lanza el modo consola con menú interactivo de opciones.
      */
-    private static void iniciarModoConsola() {
-        Scanner scanner = new Scanner(System.in);
+    private static void iniciarModoConsola(Scanner scanner) {
         boolean continuar = true;
 
         while (continuar) {
@@ -78,6 +83,5 @@ public class Main {
             }
         }
 
-        scanner.close();
     }
 }

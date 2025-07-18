@@ -4,6 +4,7 @@ import com.mycompany.drivequestrentals.modelo.Vehiculo;
 import com.mycompany.drivequestrentals.modelo.VehiculoCarga;
 import com.mycompany.drivequestrentals.modelo.VehiculoPasajeros;
 import com.mycompany.drivequestrentals.servicios.FlotaVehiculosService;
+import com.mycompany.drivequestrentals.ServiceManager;
 import com.mycompany.drivequestrentals.App;
 import com.mycompany.drivequestrentals.util.AlertaUtil;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class RegistroVehiculoController {
     @FXML private TextField txtCapacidadCarga;
     @FXML private TextField txtCantidadAsientos;
 
-    private final FlotaVehiculosService flotaService = new FlotaVehiculosService();
+    private final FlotaVehiculosService flotaService = ServiceManager.getFlotaService();
 
     @FXML
     public void initialize() {

@@ -7,6 +7,7 @@ import com.mycompany.drivequestrentals.modelo.Vehiculo;
 import com.mycompany.drivequestrentals.servicios.ArriendoService;
 import com.mycompany.drivequestrentals.servicios.ClienteService;
 import com.mycompany.drivequestrentals.servicios.FlotaVehiculosService;
+import com.mycompany.drivequestrentals.ServiceManager;
 import com.mycompany.drivequestrentals.util.AlertaUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -29,9 +30,9 @@ public class RegistroArriendoController {
     @FXML
     private DatePicker dateFin;
 
-    private final ClienteService clienteService = new ClienteService();
-    private final FlotaVehiculosService vehiculoService = new FlotaVehiculosService();
-    private final ArriendoService arriendoService = new ArriendoService();
+    private final ClienteService clienteService = ServiceManager.getClienteService();
+    private final FlotaVehiculosService vehiculoService = ServiceManager.getFlotaService();
+    private final ArriendoService arriendoService = ServiceManager.getArriendoService();
 
     /**
      * Registra un arriendo tras validar campos y disponibilidad.

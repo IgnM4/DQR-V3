@@ -5,6 +5,7 @@ import com.mycompany.drivequestrentals.modelo.Arriendo;
 import com.mycompany.drivequestrentals.modelo.Pago;
 import com.mycompany.drivequestrentals.servicios.ArriendoService;
 import com.mycompany.drivequestrentals.servicios.PagoService;
+import com.mycompany.drivequestrentals.ServiceManager;
 import com.mycompany.drivequestrentals.util.AlertaUtil;
 import com.mycompany.drivequestrentals.util.IdUtil;
 import javafx.fxml.FXML;
@@ -28,8 +29,8 @@ public class RegistroPagoController {
     @FXML
     private DatePicker datePago;
 
-    private final ArriendoService arriendoService = new ArriendoService();
-    private final PagoService pagoService = new PagoService();
+    private final ArriendoService arriendoService = ServiceManager.getArriendoService();
+    private final PagoService pagoService = ServiceManager.getPagoService();
 
     /**
      * Acción principal para registrar un pago de arriendo.
