@@ -5,6 +5,7 @@ import com.mycompany.drivequestrentals.modelo.Mantenimiento;
 import com.mycompany.drivequestrentals.modelo.Vehiculo;
 import com.mycompany.drivequestrentals.servicios.FlotaVehiculosService;
 import com.mycompany.drivequestrentals.servicios.MantenimientoService;
+import com.mycompany.drivequestrentals.ServiceManager;
 import com.mycompany.drivequestrentals.util.AlertaUtil;
 import com.mycompany.drivequestrentals.util.IdUtil;
 import javafx.fxml.FXML;
@@ -29,8 +30,8 @@ public class RegistroMantenimientoController {
     @FXML
     private TextField txtKilometraje;
 
-    private final FlotaVehiculosService vehiculoService = new FlotaVehiculosService();
-    private final MantenimientoService mantenimientoService = new MantenimientoService();
+    private final FlotaVehiculosService vehiculoService = ServiceManager.getFlotaService();
+    private final MantenimientoService mantenimientoService = ServiceManager.getMantenimientoService();
 
     /**
      * Maneja el evento de registro de mantenimiento.

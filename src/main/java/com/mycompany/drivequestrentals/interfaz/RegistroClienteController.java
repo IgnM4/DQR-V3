@@ -2,6 +2,7 @@ package com.mycompany.drivequestrentals.interfaz;
 
 import com.mycompany.drivequestrentals.modelo.Cliente;
 import com.mycompany.drivequestrentals.servicios.ClienteService;
+import com.mycompany.drivequestrentals.ServiceManager;
 import com.mycompany.drivequestrentals.App;
 import com.mycompany.drivequestrentals.util.AlertaUtil;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class RegistroClienteController {
     @FXML
     private TextField txtEmail;
 
-    private final ClienteService clienteService = new ClienteService();
+    private final ClienteService clienteService = ServiceManager.getClienteService();
 
     /**
      * Método principal para registrar un nuevo cliente.
