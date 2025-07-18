@@ -40,7 +40,7 @@ public class RecordatorioFinReservaThread extends Thread {
         for (Reserva reserva : reservas) {
             if (reserva == null || reserva.getFechaFin() == null) continue;
 
-            LocalDate fechaFin = reserva.getFechaFin();
+            LocalDate fechaFin = reserva.getFechaFin().toLocalDate();
 
             if (fechaFin.isAfter(hoy) && fechaFin.isBefore(hoy.plusDays(3))) {
                 System.out.printf("📅 Recordatorio: La reserva de %s con el vehículo [%s] finaliza el día %s.%n",

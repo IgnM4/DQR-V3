@@ -6,5 +6,5 @@ module com.mycompany.drivequestrentals {
     opens com.mycompany.drivequestrentals.interfaz to javafx.fxml;
     exports com.mycompany.drivequestrentals;
     exports com.mycompany.drivequestrentals.util;
-    requires org.junit.jupiter.api;
+    requires junit.jupiter.api;
 }

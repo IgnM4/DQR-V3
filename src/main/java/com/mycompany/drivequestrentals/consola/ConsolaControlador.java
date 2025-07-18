@@ -1,6 +1,7 @@
 package com.mycompany.drivequestrentals.consola;
 
 import com.mycompany.drivequestrentals.modelo.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,7 +37,7 @@ public class ConsolaControlador {
                 System.out.print("Ingrese teléfono: ");
                 String telefono = scanner.nextLine();
 
-                Cliente nuevoCliente = new Cliente(nombre, rut, correo, telefono);
+                Cliente nuevoCliente = new Cliente(nombre, rut, telefono, correo, "");
                 registro.agregarCliente(nuevoCliente);
                 System.out.println("✅ Cliente registrado correctamente.");
                 break;
@@ -89,7 +90,8 @@ public class ConsolaControlador {
                 System.out.print("Ingrese año: ");
                 int anio = Integer.parseInt(scanner.nextLine());
 
-                Vehiculo nuevoVehiculo = new Vehiculo(marca, modelo, patente, anio);
+                Vehiculo nuevoVehiculo = new VehiculoPasajeros("V-" + patente, patente, marca, modelo, anio,
+                        "Disponible", "", 4);
                 registro.agregarVehiculo(nuevoVehiculo);
                 System.out.println("✅ Vehículo registrado correctamente.");
                 break;
@@ -147,7 +149,9 @@ public class ConsolaControlador {
         System.out.print("Ingrese fecha de término (yyyy-mm-dd): ");
         String fechaTermino = scanner.nextLine();
 
-        Arriendo arriendo = new Arriendo(cliente, vehiculo, fechaInicio, fechaTermino);
+        LocalDate inicio = LocalDate.parse(fechaInicio);
+        LocalDate termino = LocalDate.parse(fechaTermino);
+        Arriendo arriendo = new Arriendo(cliente, vehiculo, inicio, termino);
         registro.registrarArriendo(arriendo);
         System.out.println("✅ Arriendo registrado correctamente.");
     }
@@ -168,7 +172,10 @@ public class ConsolaControlador {
 
         System.out.print("Ingrese monto del pago: ");
         double monto = Double.parseDouble(scanner.nextLine());
-        Pago pago = new Pago(arriendo, monto);
+        double neto = monto / 1.19;
+        double iva = monto - neto;
+        Pago pago = new Pago(java.util.UUID.randomUUID().toString(), arriendo, neto, iva,
+                monto, LocalDate.now(), "Efectivo");
         registro.registrarPago(pago);
         System.out.println("✅ Pago registrado correctamente.");
     }
@@ -192,7 +199,10 @@ public class ConsolaControlador {
         System.out.print("Ingrese fecha del mantenimiento (yyyy-mm-dd): ");
         String fecha = scanner.nextLine();
 
-        Mantenimiento mantenimiento = new Mantenimiento(vehiculo, descripcion, fecha);
+        LocalDate fechaMant = LocalDate.parse(fecha);
+        Mantenimiento mantenimiento = new Mantenimiento(
+                java.util.UUID.randomUUID().toString(), vehiculo, descripcion,
+                fechaMant, 0.0, 0.0);
         registro.registrarMantenimiento(mantenimiento);
         System.out.println("✅ Mantenimiento registrado correctamente.");
     }

@@ -2,7 +2,7 @@ package com.mycompany.drivequestrentals.hilos;
 
 import com.mycompany.drivequestrentals.modelo.Reserva;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -32,7 +32,7 @@ public class VerificadorReservasActivasThread extends Thread {
             return;
         }
 
-        LocalDate hoy = LocalDate.now();
+        LocalDateTime ahora = LocalDateTime.now();
         boolean hayReservasActivas = false;
 
         for (Reserva reserva : reservas) {
@@ -41,8 +41,8 @@ public class VerificadorReservasActivasThread extends Thread {
             }
 
             boolean activa =
-                (!reserva.getFechaInicio().isAfter(hoy)) &&
-                (!reserva.getFechaFin().isBefore(hoy));
+                (!reserva.getFechaInicio().isAfter(ahora)) &&
+                (!reserva.getFechaFin().isBefore(ahora));
 
             if (activa) {
                 hayReservasActivas = true;
@@ -55,7 +55,7 @@ public class VerificadorReservasActivasThread extends Thread {
         }
 
         if (!hayReservasActivas) {
-            System.out.println("✅ No hay reservas activas para el día de hoy (" + hoy + ").");
+            System.out.println("✅ No hay reservas activas para el día de hoy (" + ahora.toLocalDate() + ").");
         }
     }
 }

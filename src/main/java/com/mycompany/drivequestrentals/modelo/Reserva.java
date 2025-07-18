@@ -14,6 +14,8 @@ public class Reserva {
 
     private String codigoReserva;
     private Cliente cliente;
+    /** Vehículo asociado a la reserva. */
+    private Vehiculo vehiculo;
     private String rutCliente;
     private String patenteVehiculo;
     private LocalDateTime fechaInicio;
