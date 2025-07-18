@@ -8,13 +8,9 @@
     <children>
         <VBox spacing="10" layoutX="50" layoutY="30">
             <Label text="Registro de Pago"/>
-            <TextField fx:id="txtId" promptText="ID Pago"/>
-            <TextField fx:id="txtIdArriendo" promptText="ID Arriendo"/>
-            <TextField fx:id="txtMontoNeto" promptText="Monto Neto"/>
-            <TextField fx:id="txtIVA" promptText="IVA"/>
-            <TextField fx:id="txtTotal" promptText="Total Pago"/>
-            <TextField fx:id="txtFecha" promptText="Fecha Pago (AAAA-MM-DD)"/>
-            <TextField fx:id="txtMetodo" promptText="Método de Pago"/>
+            <TextField fx:id="txtRutCliente" promptText="RUT/Pasaporte Cliente"/>
+            <TextField fx:id="txtMetodoPago" promptText="Método de Pago"/>
+            <DatePicker fx:id="datePago" promptText="Fecha Pago"/>
             <Button text="Registrar" onAction="#registrarPago"/>
             <Button text="Volver" onAction="#volverAlMenu"/>
         </VBox>

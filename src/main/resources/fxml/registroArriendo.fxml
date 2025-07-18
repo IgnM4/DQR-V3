@@ -8,12 +8,10 @@
     <children>
         <VBox spacing="10" layoutX="50" layoutY="30">
             <Label text="Registro de Arriendo"/>
-            <TextField fx:id="txtId" promptText="ID Arriendo"/>
-            <TextField fx:id="txtCliente" promptText="RUT/Pasaporte Cliente"/>
-            <TextField fx:id="txtVehiculo" promptText="Patente Vehículo"/>
-            <TextField fx:id="txtFechaInicio" promptText="Fecha Inicio (AAAA-MM-DD)"/>
-            <TextField fx:id="txtFechaFin" promptText="Fecha Fin (AAAA-MM-DD)"/>
-            <TextField fx:id="txtValorDiario" promptText="Valor Diario"/>
+            <TextField fx:id="txtRutCliente" promptText="RUT/Pasaporte Cliente"/>
+            <TextField fx:id="txtPatenteVehiculo" promptText="Patente Vehículo"/>
+            <DatePicker fx:id="dateInicio" promptText="Fecha Inicio"/>
+            <DatePicker fx:id="dateFin" promptText="Fecha Fin"/>
             <Button text="Registrar" onAction="#registrarArriendo"/>
             <Button text="Volver" onAction="#volverAlMenu"/>
         </VBox>
