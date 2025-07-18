@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mycompany.drivequestrentals.interfaz.RegistroPagoController">
+    <children>
+        <VBox spacing="10" layoutX="50" layoutY="30">
+            <Label text="Registro de Pago"/>
+            <TextField fx:id="txtId" promptText="ID Pago"/>
+            <TextField fx:id="txtIdArriendo" promptText="ID Arriendo"/>
+            <TextField fx:id="txtMontoNeto" promptText="Monto Neto"/>
+            <TextField fx:id="txtIVA" promptText="IVA"/>
+            <TextField fx:id="txtTotal" promptText="Total Pago"/>
+            <TextField fx:id="txtFecha" promptText="Fecha Pago (AAAA-MM-DD)"/>
+            <TextField fx:id="txtMetodo" promptText="Método de Pago"/>
+            <Button text="Registrar" onAction="#registrarPago"/>
+            <Button text="Volver" onAction="#volverAlMenu"/>
+        </VBox>
+    </children>
+</AnchorPane>
